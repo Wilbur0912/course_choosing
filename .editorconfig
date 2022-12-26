@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CA1051: 請勿宣告可見的執行個體欄位
+dotnet_diagnostic.CA1051.severity = none

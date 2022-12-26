@@ -1,0 +1,90 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - studentcourse</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    
+</head>
+<body style="background-image: linear-gradient(to right top, #2468cd, #6d67cf, #9b66cc, #c064c4, #df64b9, #ef68a9, #f96f9a, #ff798c, #ff887c, #ff9a6f, #ffae65, #ffc261);">
+    <header>
+            <nav class="navbar navbar-expand-sm  navbar-dark" style="background-color: #373737; ">
+                <div class="container signupsubmit">
+                    @if (ViewBag.StuOrTeacher != "Teacher")
+                    {
+                        <a class="navbar-brand" style="color: silver" asp-area="" asp-controller="Courses" asp-action="RealIndex">Home</a>
+                        <a class="nav-link" style="color: silver " asp-area="" asp-controller="Courses" asp-action="Index">課程列表</a>
+                    }
+                    else
+                    {
+                        <a class="navbar-brand" style="color: silver" asp-area="" asp-controller="Courses" asp-action="RealIndex">Home</a>
+                        <a class="nav-link btn btn-link" style="color: silver" asp-area="" asp-controller="Courses" asp-action="TeacherSys">學生選課狀況 &nbsp</a>
+                        
+                        <a class="nav-link btn btn-link" style="color: silver" asp-area="" asp-controller="Courses" asp-action="TeacherSchedule">教師課表</a>
+                    }
+                    <ul class="navbar-nav ml-auto">
+                        <partial name="_LoginPartial.cshtml" />
+                    </ul>
+                </div>
+             </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted bg-white" style="background-color: white; ">
+        <div class="container  style="color: black"">
+            &copy; 2021 - studentcourse - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+<style>
+    .navbar {
+        overflow: hidden;
+        background-color: #ffffff;
+        position: fixed; /* Set the navbar to fixed position */
+        top: 0; /* Position the navbar at the top of the page */
+        width: 100%; /* Full width */
+        z-index: 999;
+    }
+
+        /* Links inside the navbar */
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 8px 1px;
+            text-decoration: none;
+        }
+
+            /*Change background on mouse-over */
+            bg-dark.navbar a:hover {
+                background: #ddd;
+                color: white;
+            }
+    /* Main content */
+    .main {
+        margin-top: 50px; /* Add a top margin to avoid content overlay */
+    }
+
+    .signupsubmit {
+        color: #fff;
+    }
+</style>

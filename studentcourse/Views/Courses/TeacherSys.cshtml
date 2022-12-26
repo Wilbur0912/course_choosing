@@ -1,0 +1,44 @@
+﻿@model IEnumerable<studentcourse.Models.StudentsList>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    &nbsp
+<p>
+    &nbsp
+<p>
+    &nbsp
+    <div style="background-color: white; border-radius: 10px; padding:15px 20px; ">
+        <table class="table">
+            <thead style="border-collapse: collapse;">
+                <tr >
+                    <th>
+                        @Html.DisplayNameFor(model => model.StudentId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StudentName)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StudentId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StudentName)
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.StudentId">查看學生選課狀況</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

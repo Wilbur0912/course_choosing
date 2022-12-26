@@ -1,0 +1,75 @@
+﻿@model studentcourse.Models.MyCourse
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+<h1>我的課表</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                課程Id
+            </th>
+            <th>
+                課程名稱
+            </th>
+            <th>
+                時段
+            </th>
+            <th>
+                星期
+            </th>
+            <th>
+                教師
+            </th>
+            <th>
+                科系
+            </th>
+            <th>
+                類別
+            </th>
+            <th>
+                學分
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (var item in Model.MyCourses)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Week)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Teacher)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Credit)
+                </td>
+                <td>
+                    <a asp-action="Del" asp-route-id="@item.Id">刪除</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
